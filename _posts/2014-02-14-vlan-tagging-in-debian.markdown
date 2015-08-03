@@ -24,13 +24,11 @@ This will immediately load the 802.1Q kernel module. To be sure the module loads
 ```
 
 ## Install VLAN package
-
 This is a package that allows you to add VLAN devices to your physical devices.
 
 apt-get install vlan  
 
 ## Configure network interfaces
-
 This part can be easily be modified to fit your needs. I don't need my host OS to be able to access the same VLAN as my VM, so I don't have an IP assigned to the `eth0.10` interface.
 
 Open `/etc/network/interfaces` and use this configuration, modified for your network:
@@ -59,7 +57,6 @@ iface eth0.20 inet static
 ```
 
 ## Restart network interfaces
-
 ```
 ifdown eth0  
 ifup eth0  
