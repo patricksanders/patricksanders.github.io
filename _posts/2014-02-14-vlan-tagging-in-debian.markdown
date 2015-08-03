@@ -35,33 +35,34 @@ Open `/etc/network/interfaces` and use this configuration, modified for your net
 
 ```
 # The loopback network interface
-auto lo  
+auto lo
 iface lo inet loopback
 
 # Physical adapter
-auto eth0  
-iface eth0 inet manual  
+auto eth0
+iface eth0 inet manual
   up ifconfig eth0 0.0.0.0 up
 
 # VLAN 10 interface for VMs; no IP
-auto eth0.10  
-iface eth0.10 inet manual  
+auto eth0.10
+iface eth0.10 inet manual
   up ifconfig eth0.10 0.0.0.0 up
 
 # VLAN 20 interface for host
-auto eth0.20  
-iface eth0.20 inet static  
+auto eth0.20
+iface eth0.20 inet static
   address *.*.*.*
   netmask 255.255.255.0
   gateway *.*.*.*
 ```
 
 ## Restart network interfaces
+
 ```
-ifdown eth0  
-ifup eth0  
-ifup eth0.10  
-ifup eth0.20  
+ifdown eth0
+ifup eth0
+ifup eth0.10
+ifup eth0.20
 ```
 
 You can now set your VMs to use the `eth0.10` interface. If all goes well, you should be able to access VLAN 10 from your VM and VLAN 20 from your host.
