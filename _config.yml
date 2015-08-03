@@ -11,6 +11,7 @@ twitter_username: patricksanders
 github_username:  patricksanders
 
 # Build settings
+permalink: none
 markdown: kramdown
 
 kramdown:
